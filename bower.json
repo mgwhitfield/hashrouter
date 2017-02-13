@@ -1,5 +1,5 @@
 {
-  "name": "HashRouter",
+  "name": "hashrouter",
   "description": "Simple access to the Hashbang with listeners, filters and query string deconstruction.",
   "main": "hashrouter.class.js",
   "keywords": [
