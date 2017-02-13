@@ -83,7 +83,7 @@ class HashRouter {
         this.currentHash = HashRouter.toObject(window.location.hash);
         for (filterID in this.filters) {
           if (this.check(this.filters[filterID][0])) {
-            this.filters[filterID][1]();
+            this.filters[filterID][1](this.currentHash);
           }
         }
       }
