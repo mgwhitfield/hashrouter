@@ -24,6 +24,7 @@ class HashRouter {
       let key;
       if (typeof to == 'string') {
         window.location.hash = to;
+        this.currentHash = HashRouter.toObject(to);
         console.warn('HashRouter: Hash overwritten', to);
       } else if (typeof to == 'object') {
         for (key in to) {
@@ -80,7 +81,9 @@ class HashRouter {
     hook() {
       let fn = (e) => {
         let filterID;
-        this.currentHash = HashRouter.toObject(window.location.hash);
+        if (window.location.hash) {
+          this.currentHash = HashRouter.toObject(window.location.hash);
+        }
         for (filterID in this.filters) {
           if (this.check(this.filters[filterID][0])) {
             this.filters[filterID][1](this.currentHash);
